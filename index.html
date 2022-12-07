@@ -1,0 +1,62 @@
+<html>
+
+<head>
+
+<title>Tenn's Cool Title  </title>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="booth-style.css">
+
+<script>
+var currentPlayer;
+function Solo(soundobj) {
+ var thissound=document.getElementById(soundobj);
+ if(currentPlayer  && currentPlayer != thissound) {
+      currentPlayer.pause(); 
+ }
+ if (thissound.paused)
+            thissound.play();
+    else
+        thissound.pause();
+	thissound.currentTime = 0;
+        currentPlayer = thissound;
+}
+</script>
+</head>
+
+<body>
+
+<audio id="place_1">
+    <source src="tn-sounds/place_1.mp3" type="audio/mpeg" />
+</audio>
+
+<audio id="place_2">
+    <source src="tn-sounds/place_2.mp3" type="audio/mpeg" />
+</audio>
+
+<audio id="place_3">
+    <source src="tn-sounds/place_3.mp3" type="audio/mpeg" />
+</audio>
+
+
+
+<!-- To generate x,y pairs for image map shapes, try this site: https://www.image-map.net/ -->
+
+<div overflow: hidden;>
+
+<img src="tn-images/twoPlaces.jpg" width="1920" height="1080" usemap="#local">
+<map name="local"> 
+
+
+
+<area shape="rect" coords="13,21,753,329" onClick="Solo('place_1'); return true;" target="player" />
+
+<area shape="rect" coords="924,136,1636,650" onClick="Solo('place_2'); return true;" target="player" />
+
+<area shape="poly" coords="84, 431,344,429,624,537,621,704,158,695,114,644" onClick="Solo('place_3'); return true;" target="player" />
+
+</map>
+
+</div>
+
+</body>
+
+</html>
